@@ -1,0 +1,63 @@
+<ion-header class="no-shadow"></ion-header>
+<ion-content fullscreen class="login-full-bg">
+  <div class="login-flex-container">
+    <div class="login-image-col">
+      <img src="assets/img.png" alt="Person using a laptop and smiling in a bright modern workspace with motivational text Welcome Back on the wall, conveying a friendly and inviting atmosphere" class="login-illustration" />
+    </div>
+    <div class="login-form-col">
+      <div class="login-card">
+        <h2 class="login-title">Bienvenido <span class="brand-title"></span></h2>
+
+        <!-- Primero los campos de email y password -->
+        <form [formGroup]="loginForm" (ngSubmit)="loginEmail()">
+  <ion-item class="input-item">
+    <ion-icon name="mail-outline" slot="start"></ion-icon>
+    <ion-input
+      placeholder="Email"
+      formControlName="email"
+      type="email"
+      required>
+    </ion-input>
+  </ion-item>
+  <ion-item class="input-item">
+    <ion-icon name="key-outline" slot="start"></ion-icon>
+    <ion-input
+      [type]="showPassword ? 'text' : 'password'"
+      placeholder="Password"
+      formControlName="password"
+      required>
+    </ion-input>
+    <ion-icon
+      slot="end"
+      [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+      (click)="togglePasswordVisibility()"
+      style="cursor:pointer">
+    </ion-icon>
+  </ion-item>
+  <button expand="full" type="submit" color="primary" class="login-btn login">Login</button>
+</form>
+        <div class="divider">
+          <hr>
+          <span>OR</span>
+          <hr>
+        </div>
+
+        <!-- Botones sociales con iconos y sombra -->
+<button expand="full" fill="solid" class="social-btn google">
+  <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="social-icon" alt="Google" />
+  LOGIN WITH GOOGLE
+</button>
+<button expand="full" fill="solid" class="social-btn facebook">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" class="social-icon" alt="Facebook" />
+  LOGIN WITH FACEBOOK
+</button>
+
+        <div *ngIf="error" class="error-msg">{{ error }}</div>
+        <div class="register-row">
+          <span>Don't have an account?</span>
+          <a (click)="goToRegister()" class="register-link">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

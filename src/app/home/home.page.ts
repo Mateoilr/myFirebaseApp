@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonicModule],
 })
 export class HomePage {
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
+
+  async logout() {
+    await this.authService.logout();
+    alert('Cierre de sesión exitoso');
+    this.router.navigate(['/login']);
+  }
 }

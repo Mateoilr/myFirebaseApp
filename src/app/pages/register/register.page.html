@@ -1,0 +1,23 @@
+<form [formGroup]="registerForm" (ngSubmit)="registerEmail()">
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+  </ion-item>
+  <ion-text color="danger" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+    Email inválido.
+  </ion-text>
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" formControlName="password"></ion-input>
+  </ion-item>
+  <ion-text color="danger" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+    Mínimo 6 caracteres.
+  </ion-text>
+  <ion-button expand="full" type="submit">Registrarse</ion-button>
+</form>
+<ion-button expand="full" color="primary" (click)="registerGoogle()">Registrarse con Google</ion-button>
+<div *ngIf="success" style="color:green; margin-top:10px;">{{ success }}</div>
+<div *ngIf="error" style="color:red; margin-top:10px;">{{ error }}</div>
+<ion-button expand="full" fill="clear" color="medium" (click)="goToLogin()">
+  ¿Ya tienes cuenta? Inicia sesión
+</ion-button>
