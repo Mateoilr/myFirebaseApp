@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { Toast } from '@capacitor/toast';
 import { CommonModule } from '@angular/common';
+import { Network } from '@capacitor/network';
+
 
 
 
@@ -16,8 +18,30 @@ import { CommonModule } from '@angular/common';
 })
 export class HomePage {
 foto: string | undefined;
+isOnline: boolean = true;
+networkListener: any;
+
 
   constructor(private authService: AuthService, private router: Router) {}
+
+
+ ngOnInit() {
+    this.checkNetworkStatus();
+    this.networkListener = Network.addListener('networkStatusChange', (status) => {
+      this.isOnline = status.connected;
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.networkListener) {
+      this.networkListener.remove();
+    }
+  }
+
+  async checkNetworkStatus() {
+    const status = await Network.getStatus();
+    this.isOnline = status.connected;
+  }
 
   async logout() {
     await this.authService.logout();

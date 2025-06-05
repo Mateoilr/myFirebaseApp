@@ -13,6 +13,7 @@ export class AppComponent {
 
   constructor() {
     this.initPush();
+    
   }
 
   initPush() {
