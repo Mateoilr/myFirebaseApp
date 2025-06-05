@@ -6,6 +6,7 @@ import { Camera, CameraResultType } from '@capacitor/camera';
 import { Toast } from '@capacitor/toast';
 import { CommonModule } from '@angular/common';
 import { Network } from '@capacitor/network';
+import { NavController } from '@ionic/angular';
 
 
 
@@ -22,7 +23,7 @@ isOnline: boolean = true;
 networkListener: any;
 
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private nav:NavController) {}
 
 
  ngOnInit() {
@@ -66,4 +67,9 @@ networkListener: any;
       duration: 'short'
     });
   }
+
+  login() {
+  // ...tu lógica de login...
+  this.nav.navigateRoot('/home'); // Esto limpia el historial
+}
 }

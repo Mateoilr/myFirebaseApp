@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +19,7 @@ export class LoginPage {
   showPassword = false;
 
 
-    constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {
+    constructor(private authService: AuthService, private router: Router, private fb: FormBuilder, private nav: NavController) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
@@ -40,6 +40,7 @@ export class LoginPage {
     } catch (err: any) {
       this.error = 'Credenciales incorrectas.';
       localStorage.removeItem('userEmail');
+      this.nav.navigateRoot('/home');
     }
   }
 
@@ -50,6 +51,7 @@ export class LoginPage {
       this.router.navigate(['/home']);
     } catch (err: any) {
       this.error = err.message;
+      this.nav.navigateRoot('/home');
     }
   }
 
@@ -59,6 +61,7 @@ export class LoginPage {
       this.router.navigate(['/home']);
     } catch (err: any) {
       this.error = err.message;
+      this.nav.navigateRoot('/home');
     }
   }
 
@@ -67,6 +70,7 @@ togglePasswordVisibility() {
 }
   goToRegister() {
   this.router.navigate(['/register']);
+  this.nav.navigateRoot('/home');
 
 }
 

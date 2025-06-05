@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class RegisterPage {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private nav: NavController
   ) {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -46,6 +48,7 @@ export class RegisterPage {
   } catch (err: any) {
     this.error = err.message;
     this.success = '';
+    this.nav.navigateRoot('/home');
   }
 }
 
@@ -56,6 +59,7 @@ export class RegisterPage {
       alert('Registro exitoso con Google');
     } catch (err: any) {
       this.error = err.message;
+      this.nav.navigateRoot('/home');
     }
   }
   async registerFacebook() {
@@ -64,6 +68,7 @@ export class RegisterPage {
       this.router.navigate(['/home']);
     } catch (err: any) {
       this.error = err.message;
+      this.nav.navigateRoot('/home');
     }
   }
 
@@ -72,7 +77,9 @@ togglePasswordVisibility() {
 }
   goToLogin() {
   this.router.navigate(['/login']);
+  this.nav.navigateRoot('/home');
 }
+
 
 
 }
