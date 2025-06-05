@@ -3,6 +3,7 @@ import { RouteReuseStrategy, provideRouter, withPreloading, PreloadAllModules } 
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { mailOutline, keyOutline, eyeOutline, eyeOffOutline } from 'ionicons/icons';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
@@ -30,4 +31,5 @@ addIcons({
   'eye-outline': eyeOutline,
   'eye-off-outline': eyeOffOutline,
 });
-;
+
+defineCustomElements(window)
