@@ -1,27 +1,18 @@
 import { Component } from '@angular/core';
+import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { PushNotifications, Token, PushNotificationSchema, ActionPerformed } from '@capacitor/push-notifications';
-import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { Capacitor } from '@capacitor/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  imports: [ CommonModule, IonicModule, ReactiveFormsModule, FormsModule],
+  imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
-  token: string = '';
+ token: string = '';
 
   constructor() {
-    if (Capacitor.isNativePlatform()) {
-      this.initPush();
-    }
-  }
-
-  copiarToken() {
-    navigator.clipboard.writeText(this.token);
-    alert('Token copiado al portapapeles');
+    this.initPush();
   }
 
   initPush() {
@@ -33,8 +24,8 @@ export class AppComponent {
 
     PushNotifications.addListener('registration', (token: Token) => {
       this.token = token.value;
-      alert('Token: ' + token.value);
       console.log('Token:', token.value);
+      // Aquí puedes mostrar el token en pantalla
     });
 
     PushNotifications.addListener('registrationError', (error: any) => {
