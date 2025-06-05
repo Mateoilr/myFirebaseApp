@@ -54,6 +54,10 @@ currentUser: User | null = null;
     return signInWithPopup(this.auth, new GoogleAuthProvider());
   }
 
+  // Login con Facebook
+  loginWithFacebook(): Promise<UserCredential> {
+    return signInWithPopup(this.auth, new FacebookAuthProvider());
+  }
 
 
   // Cerrar sesión

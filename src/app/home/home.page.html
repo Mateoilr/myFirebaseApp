@@ -1,27 +1,42 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Inicio</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-header class="no-shadow"></ion-header>
+<ion-content fullscreen class="login-full-bg">
+  <div class="login-flex-container">
+    <div class="login-image-col">
+      <img src="assets/img.png" alt="Bienvenida" class="login-illustration" />
+    </div>
+    <div class="login-form-col">
+      <div class="login-card">
+        <h2 class="login-title">
+          <i class="fa fa-home" style="margin-right:8px;"></i>
+          ¡Bienvenido a la página principal!
+        </h2>
 
-<ion-content class="ion-padding">
-  <h2>¡Bienvenido a la página principal!</h2>
+        <button expand="full" fill="solid" color="danger" class="login-btn" (click)="logout()">
+          <i class="fa fa-sign-out" style="margin-right:8px;"></i>
+          Cerrar sesión
+        </button>
 
-  <ion-button expand="full" color="danger" (click)="logout()">
-    Cerrar sesión
-  </ion-button>
+        <button expand="full" fill="solid" color="primary" class="login-btn" (click)="tomarFoto()" style="margin-top: 16px;">
+          <i class="fa fa-camera" style="margin-right:8px;"></i>
+          Tomar Foto
+        </button>
 
-  <ion-button expand="full" color="primary" (click)="tomarFoto()" style="margin-top: 16px;">
-    Tomar Foto
-  </ion-button>
+        <img *ngIf="foto" [src]="foto" alt="Foto tomada"
+          style="margin-top: 20px; width: 100%; max-width: 300px;" />
 
-  <img *ngIf="foto" [src]="foto" alt="Foto tomada"
-    style="margin-top: 20px; width: 100%; max-width: 300px;" />
-
-  <div style="margin-top: 24px;" *ngIf="isOnline; else offline">
-    <ion-text color="success">¡Conectado a Internet!</ion-text>
+        <div style="margin-top: 24px;" *ngIf="isOnline; else offline">
+          <ion-text color="success">
+            <i class="fa fa-wifi" style="margin-right:8px;"></i>
+            ¡Conectado a Internet!
+          </ion-text>
+        </div>
+        <ng-template #offline>
+          <ion-text color="danger">
+            <i class="fa fa-times-circle" style="margin-right:8px;"></i>
+            Sin conexión a Internet.
+          </ion-text>
+        </ng-template>
+      </div>
+    </div>
   </div>
-  <ng-template #offline>
-    <ion-text color="danger">Sin conexión a Internet.</ion-text>
-  </ng-template>
 </ion-content>

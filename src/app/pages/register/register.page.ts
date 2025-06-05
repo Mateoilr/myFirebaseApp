@@ -18,6 +18,7 @@ export class RegisterPage {
   registerForm: FormGroup;
   error = '';
   success = '';
+  showPassword = false;
 
   constructor(
     private authService: AuthService,
@@ -57,7 +58,18 @@ export class RegisterPage {
       this.error = err.message;
     }
   }
+  async registerFacebook() {
+    try {
+      await this.authService.loginWithFacebook();
+      this.router.navigate(['/home']);
+    } catch (err: any) {
+      this.error = err.message;
+    }
+  }
 
+togglePasswordVisibility() {
+  this.showPassword = !this.showPassword;
+}
   goToLogin() {
   this.router.navigate(['/login']);
 }
