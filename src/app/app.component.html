@@ -1,3 +1,8 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  <ion-item>
+  <ion-label position="stacked">Token</ion-label>
+  <ion-textarea [value]="token" readonly auto-grow="true"></ion-textarea>
+</ion-item>
+<ion-button (click)="copiarToken()" [disabled]="!token">Copiar token</ion-button>
 </ion-app>

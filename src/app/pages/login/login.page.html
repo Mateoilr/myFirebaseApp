@@ -9,32 +9,42 @@
         <h2 class="login-title">Bienvenido <span class="brand-title"></span></h2>
 
         <!-- Primero los campos de email y password -->
-        <form [formGroup]="loginForm" (ngSubmit)="loginEmail()">
-  <ion-item class="input-item">
-    <ion-icon name="mail-outline" slot="start"></ion-icon>
-    <ion-input
+
+  <form [formGroup]="loginForm" (ngSubmit)="loginEmail()">
+  <div class="input-item">
+    <span class="input-icon">
+      <!-- Puedes usar un icono SVG o una fuente de iconos aquí -->
+      <i class="fa fa-envelope"></i>
+    </span>
+    <input
       placeholder="Email"
       formControlName="email"
       type="email"
-      required>
-    </ion-input>
-  </ion-item>
-  <ion-item class="input-item">
-    <ion-icon name="key-outline" slot="start"></ion-icon>
-    <ion-input
+      required
+      class="input-field"
+    />
+  </div>
+  <div class="input-item">
+    <span class="input-icon">
+      <i class="fa fa-key"></i>
+    </span>
+    <input
       [type]="showPassword ? 'text' : 'password'"
       placeholder="Password"
       formControlName="password"
-      required>
-    </ion-input>
-    <ion-icon
-      slot="end"
-      [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+      required
+      class="input-field"
+    />
+    <span
+      class="toggle-password"
       (click)="togglePasswordVisibility()"
-      style="cursor:pointer">
-    </ion-icon>
-  </ion-item>
-  <button expand="full" type="submit" color="primary" class="login-btn login">Login</button>
+      style="cursor:pointer; margin-left:8px;"
+      [title]="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+    >
+      <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+    </span>
+  </div>
+  <button type="submit" class="login-btn">Login</button>
 </form>
         <div class="divider">
           <hr>
@@ -43,7 +53,7 @@
         </div>
 
         <!-- Botones sociales con iconos y sombra -->
-<button expand="full" fill="solid" class="social-btn google">
+<button expand="full" fill="solid" class="social-btn google" (click)="loginGoogle()">
   <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="social-icon" alt="Google" />
   LOGIN WITH GOOGLE
 </button>

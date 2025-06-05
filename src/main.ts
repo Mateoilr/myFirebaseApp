@@ -4,14 +4,14 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { addIcons } from 'ionicons';
 import { mailOutline, keyOutline, eyeOutline, eyeOffOutline } from 'ionicons/icons';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-
+  
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 
 // Importa AngularFire
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { firebaseConfig } from './environments/environment';
+import { firebaseConfig } from './environments/environment.prod';
 
 
 bootstrapApplication(AppComponent, {

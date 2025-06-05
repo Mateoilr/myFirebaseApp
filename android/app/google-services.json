@@ -1,0 +1,64 @@
+{
+  "project_info": {
+    "project_number": "672530040546",
+    "project_id": "fir-prueba-d3d06",
+    "storage_bucket": "fir-prueba-d3d06.firebasestorage.app"
+  },
+  "client": [
+    {
+
+      "client_info": {
+        "mobilesdk_app_id": "1:672530040546:android:29ceb13ebb6bc3db8780bb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      }
+      ,
+      "oauth_client": [
+        {
+          "client_id": "672530040546-ai3oklg2o3r9ohhoqtbtbrd4jdoor309.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMK7cwSXb2BjtvfwEk7rN6gjxsTlqQFME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672530040546-ai3oklg2o3r9ohhoqtbtbrd4jdoor309.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "oauth_client": [
+        {
+          "client_id": "672530040546-ai3oklg2o3r9ohhoqtbtbrd4jdoor309.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMK7cwSXb2BjtvfwEk7rN6gjxsTlqQFME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672530040546-ai3oklg2o3r9ohhoqtbtbrd4jdoor309.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

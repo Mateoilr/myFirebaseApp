@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { Toast } from '@capacitor/toast';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -12,7 +14,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonicModule, CommonModule],
+  imports: [IonicModule, CommonModule, ReactiveFormsModule, ],
 })
 export class HomePage {
 foto: string | undefined;
