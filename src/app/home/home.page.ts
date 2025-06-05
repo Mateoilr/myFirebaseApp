@@ -7,6 +7,7 @@ import { Toast } from '@capacitor/toast';
 import { CommonModule } from '@angular/common';
 import { Network } from '@capacitor/network';
 import { NavController } from '@ionic/angular';
+import { ChangeDetectorRef } from '@angular/core';
 
 
 
@@ -23,13 +24,14 @@ isOnline: boolean = true;
 networkListener: any;
 
 
-  constructor(private authService: AuthService, private router: Router, private nav:NavController) {}
+  constructor(private authService: AuthService, private router: Router, private nav:NavController,   private cdr: ChangeDetectorRef) {}
 
 
  ngOnInit() {
     this.checkNetworkStatus();
     this.networkListener = Network.addListener('networkStatusChange', (status) => {
       this.isOnline = status.connected;
+      this.cdr.detectChanges();
     });
   }
 

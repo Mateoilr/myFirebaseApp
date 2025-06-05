@@ -2,7 +2,7 @@
 <ion-content fullscreen class="login-full-bg">
   <div class="login-flex-container">
     <div class="login-image-col">
-      <img src="assets/img.png" alt="Person using a laptop and smiling in a bright modern workspace with motivational text Welcome Back on the wall, conveying a friendly and inviting atmosphere" class="login-illustration" />
+      <img src="assets/Mobile-login.png" alt="Persona usando una laptop y sonriendo en un espacio moderno y luminoso con el texto motivacional 'Bienvenido de nuevo' en la pared, transmitiendo un ambiente amigable y acogedor" class="login-illustration" />
     </div>
     <div class="login-form-col">
       <div class="login-card">
@@ -13,11 +13,10 @@
   <form [formGroup]="loginForm" (ngSubmit)="loginEmail()">
   <div class="input-item">
     <span class="input-icon">
-      <!-- Puedes usar un icono SVG o una fuente de iconos aquí -->
       <i class="fa fa-envelope"></i>
     </span>
     <input
-      placeholder="Email"
+      placeholder="Correo electrónico"
       formControlName="email"
       type="email"
       required
@@ -30,7 +29,7 @@
     </span>
     <input
       [type]="showPassword ? 'text' : 'password'"
-      placeholder="Password"
+      placeholder="Contraseña"
       formControlName="password"
       required
       class="input-field"
@@ -44,28 +43,28 @@
       <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
     </span>
   </div>
-  <button type="submit" class="login-btn">Login</button>
+  <button type="submit" class="login-btn">Iniciar sesión</button>
 </form>
         <div class="divider">
           <hr>
-          <span>OR</span>
+          <span>O</span>
           <hr>
         </div>
 
         <!-- Botones sociales con iconos y sombra -->
 <button expand="full" fill="solid" class="social-btn google" (click)="loginGoogle()">
   <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="social-icon" alt="Google" />
-  LOGIN WITH GOOGLE
+  INICIAR CON GOOGLE
 </button>
 <button expand="full" fill="solid" class="social-btn facebook" (click)="loginFacebook()">
   <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" class="social-icon" alt="Facebook" />
-  LOGIN WITH FACEBOOK
+  INICIAR CON FACEBOOK
 </button>
 
         <div *ngIf="error" class="error-msg">{{ error }}</div>
         <div class="register-row">
-          <span>Don't have an account?</span>
-          <a (click)="goToRegister()" class="register-link">Register</a>
+          <span>¿No tienes una cuenta?</span>
+          <a (click)="goToRegister()" class="register-link">Regístrate</a>
         </div>
       </div>
     </div>

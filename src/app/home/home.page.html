@@ -2,7 +2,7 @@
 <ion-content fullscreen class="login-full-bg">
   <div class="login-flex-container">
     <div class="login-image-col">
-      <img src="assets/img.png" alt="Bienvenida" class="login-illustration" />
+      <img src="assets/2941990.png" alt="Bienvenida" class="login-illustration" />
     </div>
     <div class="login-form-col">
       <div class="login-card">
@@ -24,11 +24,15 @@
         <img *ngIf="foto" [src]="foto" alt="Foto tomada"
           style="margin-top: 20px; width: 100%; max-width: 300px;" />
 
-        <div style="margin-top: 24px;" *ngIf="isOnline; else offline">
-          <ion-text color="success">
-            <i class="fa fa-wifi" style="margin-right:8px;"></i>
-            ¡Conectado a Internet!
-          </ion-text>
+      <div *ngIf="isOnline" class="online-msg">
+      <i class="fa fa-wifi" style="margin-right:8px;"></i>
+
+  ¡Conectado a Internet!
+</div>
+<div *ngIf="!isOnline" class="offline-msg">
+  Sin conexión a Internet
+</div>
+
         </div>
         <ng-template #offline>
           <ion-text color="danger">
@@ -38,5 +42,5 @@
         </ng-template>
       </div>
     </div>
-  </div>
+
 </ion-content>
