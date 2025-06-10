@@ -1,0 +1,27 @@
+<header class="users-header no-shadow">
+  <div class="users-toolbar">
+    <h1 class="users-title-header">Usuarios</h1>
+  </div>
+</header>
+
+<main class="users-full-bg">
+  <div class="users-flex-container">
+    <div class="users-form-col">
+      <div class="users-card">
+        <h2 class="users-title">Lista de Usuarios</h2>
+        <ul class="users-list">
+          <li class="users-item" *ngFor="let usuario of usuarios">
+            <div class="user-avatar">
+              <span>{{ usuario.name[0] }}</span>
+            </div>
+            <div class="user-info">
+              <h2>{{ usuario.name }}</h2>
+              <p>{{ usuario.email }}</p>
+            </div>
+          </li>
+        </ul>
+        <button class="users-btn" (click)="irAHome()">Volver a Home</button>
+      </div>
+    </div>
+  </div>
+</main>

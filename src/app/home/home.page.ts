@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { Network } from '@capacitor/network';
 import { NavController } from '@ionic/angular';
 import { ChangeDetectorRef } from '@angular/core';
+import { isRTL } from 'ionicons/dist/types/components/icon/utils';
 
 
 
@@ -71,7 +72,19 @@ networkListener: any;
   }
 
   login() {
-  // ...tu lógica de login...
-  this.nav.navigateRoot('/home'); // Esto limpia el historial
+
+  this.nav.navigateRoot('/home');
 }
+
+iraUsers() {
+  this.nav.navigateRoot('/users'), {
+    animated: true,
+    animationDirection: 'forward'
+  }}
+
+iraAccesibilidad() {
+  this.nav.navigateRoot('/accesibilidad'), {
+    animated: true,
+    animationDirection: 'forward'
+  }}
 }

@@ -10,7 +10,7 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => import('src/app/home/home.page').then(m => m.HomePage),
-    //canActivate: [authGuard]
+    canActivate: [authGuard]
   },
   {
     path: 'login',
@@ -19,6 +19,16 @@ export const routes: Routes = [
   {
     path: 'register',
     loadComponent: () => import('./pages/register/register.page').then(m => m.RegisterPage)
-  }
+  },
+  {
+    path: 'users',
+    loadComponent: () => import('./pages/usuarios/usuarios.page').then( m => m.UsuariosPage),
+
+  },
+  {
+    path: 'accesibilidad',
+    loadComponent: () => import('./pages/accesibilidad/accesibilidad.page').then(m => m.AccesibilidadPage),
+    canActivate: [authGuard]
+  },
 ];
 

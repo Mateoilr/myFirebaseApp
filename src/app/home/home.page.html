@@ -20,6 +20,14 @@
           <i class="fa fa-camera" style="margin-right:8px;"></i>
           Tomar Foto
         </button>
+        <button expand="full" fill="solid" color="secondary" class="login-btn" (click)="iraUsers()" style="margin-top: 16px;">
+          <i class="fa fa-users" style="margin-right:8px;"></i>
+          Ir a Usuarios
+        </button>
+        <button expand="full" fill="solid" color="tertiary" class="login-btn" (click)="iraAccesibilidad()" style="margin-top: 16px;">
+          <i class="fa fa-box" style="margin-right:8px;"></i>
+          Ir a Pagina de Accesibilidad
+        </button>
 
         <img *ngIf="foto" [src]="foto" alt="Foto tomada"
           style="margin-top: 20px; width: 100%; max-width: 300px;" />
@@ -42,5 +50,7 @@
         </ng-template>
       </div>
     </div>
+
+
 
 </ion-content>

@@ -1,0 +1,140 @@
+body, html {
+  background: #f0f2f5 !important;
+}
+
+:host {
+  background: #f0f2f5 !important;
+}
+
+.accesibilidad-full-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.accesibilidad-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.accesibilidad-form-col {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accesibilidad-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.accesibilidad-card h1 {
+  color: #6c63ff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.accesibilidad-card p#form-desc {
+  color: #222;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.accesibilidad-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.accesibilidad-form label {
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.accesibilidad-form input,
+.accesibilidad-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f7f7fa;
+  font-size: 1rem;
+  color: #222;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.accesibilidad-form input:focus,
+.accesibilidad-form textarea:focus {
+  border: 1.5px solid #6c63ff;
+  background: #fff;
+}
+
+.error {
+  color: #b00020;
+  margin-left: 0;
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+.success {
+  color: #155724;
+  background: #d4edda;
+  border: 1px solid #b7e0c3;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+.accesibilidad-btn {
+  margin-top: 12px;
+  font-weight: 600;
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accesibilidad-btn:hover {
+  background: #574fd6;
+}
+
+.accesibilidad-btn.secondary {
+  background: #4ea8f7;
+  color: #222;
+}
+
+.accesibilidad-btn.secondary:hover {
+  background: #1c7ed6;
+  color: #fff;
+}

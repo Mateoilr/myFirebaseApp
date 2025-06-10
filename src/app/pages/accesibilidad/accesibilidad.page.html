@@ -1,0 +1,46 @@
+<main class="accesibilidad-full-bg">
+  <div class="accesibilidad-flex-container">
+    <div class="accesibilidad-form-col">
+      <div class="accesibilidad-card">
+        <h1 tabindex="0">Contacto Accesible</h1>
+        <p id="form-desc" tabindex="0">
+          Por favor, completa el formulario para contactarnos. Todos los campos son obligatorios.
+        </p>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" aria-describedby="form-desc" novalidate class="accesibilidad-form">
+          <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" formControlName="nombre" aria-required="true" tabindex="0" />
+            <div *ngIf="submitted && form.controls['nombre'].invalid" class="error" role="alert" tabindex="0">
+              El nombre es obligatorio.
+            </div>
+          </div>
+          <div>
+            <label for="correo">Correo</label>
+            <input id="correo" type="email" formControlName="correo" aria-required="true" tabindex="0" />
+            <div *ngIf="submitted && form.controls['correo'].invalid" class="error" role="alert" tabindex="0">
+              Ingresa un correo válido.
+            </div>
+          </div>
+          <div>
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" formControlName="mensaje" aria-required="true" tabindex="0"></textarea>
+            <div *ngIf="submitted && form.controls['mensaje'].invalid" class="error" role="alert" tabindex="0">
+              El mensaje es obligatorio.
+            </div>
+          </div>
+          <div *ngIf="exito" class="success" role="status" tabindex="0">
+            ¡Mensaje enviado correctamente!
+          </div>
+          <button class="accesibilidad-btn" type="submit" aria-label="Enviar formulario" tabindex="0">
+            <span style="margin-right:8px; font-size:1.3em; color:#fff; vertical-align:middle;">&#9993;</span>
+            <span style="font-weight:600;">Enviar</span>
+          </button>
+          <button class="accesibilidad-btn" type="button" (click)="irAHome()" aria-label="Volver a Home" tabindex="0">
+            <span style="margin-right:8px; font-size:1.3em; color:#fff; vertical-align:middle;">&#8962;</span>
+            <span style="font-weight:600;">Volver a Home</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

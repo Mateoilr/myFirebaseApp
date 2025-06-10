@@ -12,7 +12,7 @@ import { LoadingController } from '@ionic/angular';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule, ReactiveFormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class LoginPage {
   error = '';

@@ -4,7 +4,7 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { addIcons } from 'ionicons';
 import { mailOutline, keyOutline, eyeOutline, eyeOffOutline } from 'ionicons/icons';
 import { defineCustomElements } from '@ionic/pwa-elements/loader';
-  
+
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 
@@ -12,6 +12,10 @@ import { AppComponent } from './app/app.component';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { firebaseConfig } from './environments/environment.prod';
+import { provideHttpClient } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
+import { IonicStorageModule } from '@ionic/storage-angular';
+
 
 
 bootstrapApplication(AppComponent, {
@@ -21,6 +25,8 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes, withPreloading(PreloadAllModules)),
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
+    provideHttpClient(),
+    importProvidersFrom(IonicStorageModule.forRoot()), // <-- Agrega esta línea
 
   ],
 
