@@ -67,15 +67,17 @@ form,
 .login-btn {
   width: 100%;
 }
+
 .input-item {
   background: #e0e0e0;
   border-radius: 16px;
-  margin-bottom: 14px;
+  margin-bottom: 28px;
   width: 100%;
   min-height: 48px;
   display: flex;
   align-items: center;
   padding: 0 12px;
+  position: relative;
 }
 
 .input-icon {
@@ -88,12 +90,34 @@ form,
 
 .input-field {
   border: none;
+  border-bottom: 2px solid transparent;
   background: transparent;
   outline: none;
   font-size: 1rem;
   color: #222;
   flex: 1;
-  padding: 12px 0;
+  padding: 12px 0 8px 0;
+  transition: border-bottom 0.2s;
+}
+
+.input-field.ng-invalid.ng-touched {
+  border-bottom: 2px solid #e74c3c !important;
+  background: transparent;
+}
+
+.input-error-msg {
+  color: #e74c3c;
+  font-size: 0.92rem;
+  margin-top: 2px;
+  margin-left: 36px;
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  width: 100%;
+  padding-left: 36px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  pointer-events: none;
 }
 
 .toggle-password {
@@ -113,7 +137,7 @@ form,
   letter-spacing: 0.5px;
   display: flex;
   align-items: center;
-  justify-content: center; // <-- centra el contenido horizontalmente
+  justify-content: center;
   padding: 0.7em 1em;
   border-radius: 8px;
   border: none;
@@ -135,12 +159,10 @@ form,
   box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 .google {
-
   background: #fff;
   color: #222;
   border: 1px solid #e0e0e0;
 }
-
 .facebook {
   background: #4267B2;
   color: #fff;
@@ -174,29 +196,6 @@ form,
     color: #888;
     font-weight: 500;
     font-size: 1rem;
-  }
-}
-
-
-.options-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 18px;
-  width: 100%;
-
-  .remember-label {
-    margin-left: 8px;
-    font-size: 0.95rem;
-    color: #555;
-    flex: 1;
-  }
-
-  .forgot-link {
-    margin-left: auto;
-    color: #6C63FF;
-    font-size: 0.95rem;
-    cursor: pointer;
-    text-decoration: none;
   }
 }
 

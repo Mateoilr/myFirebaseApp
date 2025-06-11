@@ -21,10 +21,10 @@
               required
               class="input-field"
             />
+            <span *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="input-error-msg">
+              Email inválido.
+            </span>
           </div>
-          <ion-text color="danger" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
-            Email inválido.
-          </ion-text>
           <div class="input-item">
             <span class="input-icon">
               <i class="fa fa-key"></i>
@@ -39,15 +39,14 @@
             <span
               class="toggle-password"
               (click)="togglePasswordVisibility()"
-              style="cursor:pointer; margin-left:8px;"
               [title]="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'"
             >
               <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
             </span>
+            <span *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="input-error-msg">
+              Mínimo 6 caracteres.
+            </span>
           </div>
-          <ion-text color="danger" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
-            Mínimo 6 caracteres.
-          </ion-text>
           <button type="submit" class="login-btn">Registrarse</button>
         </form>
 

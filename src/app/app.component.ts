@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor() {
     this.initPush();
-    
+
   }
 
   initPush() {
@@ -26,7 +26,7 @@ export class AppComponent {
     PushNotifications.addListener('registration', (token: Token) => {
       this.token = token.value;
       console.log('Token:', token.value);
-      // Aquí puedes mostrar el token en pantalla
+    
     });
 
     PushNotifications.addListener('registrationError', (error: any) => {

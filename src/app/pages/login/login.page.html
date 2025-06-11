@@ -8,43 +8,48 @@
       <div class="login-card">
         <h2 class="login-title">Bienvenido <span class="brand-title"></span></h2>
 
-        <!-- Primero los campos de email y password -->
+        <!-- Formulario de login -->
+        <form [formGroup]="loginForm" (ngSubmit)="loginEmail()">
+          <div class="input-item">
+            <span class="input-icon">
+              <i class="fa fa-envelope"></i>
+            </span>
+            <input
+              placeholder="Correo electrónico"
+              formControlName="email"
+              type="email"
+              required
+              class="input-field"
+            />
+            <span *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="input-error-msg">
+              Ingresa un correo válido.
+            </span>
+          </div>
+          <div class="input-item">
+            <span class="input-icon">
+              <i class="fa fa-key"></i>
+            </span>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              placeholder="Contraseña"
+              formControlName="password"
+              required
+              class="input-field"
+            />
+            <span
+              class="toggle-password"
+              (click)="togglePasswordVisibility()"
+              [title]="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'"
+            >
+              <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+            </span>
+            <span *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="input-error-msg">
+              Ingresa tu contraseña.
+            </span>
+          </div>
+          <button type="submit" class="login-btn">Iniciar sesión</button>
+        </form>
 
-  <form [formGroup]="loginForm" (ngSubmit)="loginEmail()">
-  <div class="input-item">
-    <span class="input-icon">
-      <i class="fa fa-envelope"></i>
-    </span>
-    <input
-      placeholder="Correo electrónico"
-      formControlName="email"
-      type="email"
-      required
-      class="input-field"
-    />
-  </div>
-  <div class="input-item">
-    <span class="input-icon">
-      <i class="fa fa-key"></i>
-    </span>
-    <input
-      [type]="showPassword ? 'text' : 'password'"
-      placeholder="Contraseña"
-      formControlName="password"
-      required
-      class="input-field"
-    />
-    <span
-      class="toggle-password"
-      (click)="togglePasswordVisibility()"
-      style="cursor:pointer; margin-left:8px;"
-      [title]="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'"
-    >
-      <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
-    </span>
-  </div>
-  <button type="submit" class="login-btn">Iniciar sesión</button>
-</form>
         <div class="divider">
           <hr>
           <span>O</span>
@@ -52,14 +57,14 @@
         </div>
 
         <!-- Botones sociales con iconos y sombra -->
-<button expand="full" fill="solid" class="social-btn google" (click)="loginGoogle()">
-  <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="social-icon" alt="Google" />
-  INICIAR CON GOOGLE
-</button>
-<button expand="full" fill="solid" class="social-btn facebook" (click)="loginFacebook()">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" class="social-icon" alt="Facebook" />
-  INICIAR CON FACEBOOK
-</button>
+        <button expand="full" fill="solid" class="social-btn google" (click)="loginGoogle()">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="social-icon" alt="Google" />
+          INICIAR CON GOOGLE
+        </button>
+        <button expand="full" fill="solid" class="social-btn facebook" (click)="loginFacebook()">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" class="social-icon" alt="Facebook" />
+          INICIAR CON FACEBOOK
+        </button>
 
         <div *ngIf="error" class="error-msg">{{ error }}</div>
         <div class="register-row">
